@@ -16,6 +16,7 @@
     <h1>No Name</h1>
     {% endif %}
     <hr>
+    {{filename}}
     <form method="POST">
         <label for ="firstname">First Name:</label>
         <input type="text" name="firstname"><br>
@@ -23,6 +24,8 @@
         <input type="text" name="lastname"><br>
         <label for ="Details">User Details:</label>
         <input type="text" name="details"><br>
+        <label for ="cvfile">C.V fiel:</label>
+        <input type="file" name="cvfile"><br>
         <input type="submit" value="submit">
     </form>
 </body>
