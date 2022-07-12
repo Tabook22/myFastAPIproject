@@ -7,6 +7,7 @@ import psycopg2
 #DB_HOST="Nasser22-2737.postgres.pythonanywhere-services.com:12737"
 #DB_NAME="mydb" 
 #DB_USER="Nasser22"
+
 #DB_PASS="Allmona_22"
 
 #dbconn=psycopg2.connect(dbname=DB_NAME,user=DB_USER,password=DB_PASS,host=DB_HOST)
@@ -21,7 +22,12 @@ import psycopg2
 #engine =create_engine("mysql+pymysql://root@localhost:3306/test")
 #engine = create_engine("mysql+pymysql://?User=Nasser22&;Password=Pyt@allmona_22&Database=Nasser22$mydb&Server=Nasser22.mysql.pythonanywhere-services.com&Port=3306")
 #engine = create_engine(SQLALCHEMY_DATABASE_URI)
-DATABASE_URL = "postgresql://'Nasser22':'Allmona_22'@Nasser22-2737.postgres.pythonanywhere-services.com/'mydb''"
+t_host = "localhost"
+t_port = "5432" # default port for postgres server
+t_dbname = "mydb"
+t_name_user = "Nasser22"
+t_password = "Goo@allmona_22"
+DATABASE_URL = "postgresql://Tabook22:Allmona_22@localhost:5432/mydb"
 engine = create_engine(DATABASE_URL)
 #engine = create_engine('postgresql://Nasser22:Allmona_22@Nasser22-2737.postgres.pythonanywhere-services.com:12737/mydb')
 
