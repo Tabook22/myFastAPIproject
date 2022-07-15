@@ -13,7 +13,7 @@ t_host = "localhost"
 t_port = "5432" # default port for postgres server
 t_dbname = "mydb"
 t_name_user = "Nasser22"
-t_password = "Goo@allmona_22"
+t_password = "Allmona_22"
 
 try:
     db_conn = psycopg2.connect(host=t_host, port=t_port, dbname=t_dbname, user=t_name_user, password=t_password)
@@ -22,7 +22,7 @@ try:
     #Table events, and Table evtuser
     db_cursor.execute("CREATE TABLE IF NOT EXISTS usrinfo (usr_id SERIAL primary key, uname varchar(300) NOT NULL, email varchar(255),password varchar(255),created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),last_login TIMESTAMPTZ NOT NULL DEFAULT NOW())")
     db_cursor.execute("CREATE TABLE IF NOT EXISTS usrevents (evt_id SERIAL primary key, ename varchar(300) NOT NULL, sdesc varchar(500),usr_id int ,created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),last_login TIMESTAMPTZ NOT NULL DEFAULT NOW(), CONSTRAINT fk_usrinfo FOREIGN KEY(usr_id) REFERENCES usrinfo(usr_id))")
-    db_cursor.execute("CREATE TABLE IF NOT EXISTS usrevents_img (imgid SERIAL primary key,img_title varchar(300) NOT NULL, img_desc varchar(500),evt_id int, created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),last_login TIMESTAMPTZ NOT NULL DEFAULT NOW(), CONSTRAINT fk_usrevents FOREIGN KEY(evt_id) REFERENCES usrevents(evt_id))")
+    db_cursor.execute("CREATE TABLE IF NOT EXISTS usrevents_img (imgid SERIAL primary key,img_title varchar(300) NOT NULL,img_url varchar(500) NOT NULL, img_desc varchar(500),evt_id int, created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),last_login TIMESTAMPTZ NOT NULL DEFAULT NOW(), is_deleted boolean DEFAULT FALSE, CONSTRAINT fk_usrevents FOREIGN KEY(evt_id) REFERENCES usrevents(evt_id))")
     db_conn.commit()
     print("Login Successfully!")
 except Exception as error:
